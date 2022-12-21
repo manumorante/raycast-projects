@@ -1,2 +1,3 @@
-# raycast-projects
-List all your links and project in Raycast
+# My Projects
+
+All my projects in Raycast.

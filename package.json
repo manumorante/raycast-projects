@@ -1,0 +1,54 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "my-projects",
+  "title": "My Projects",
+  "description": "All my projects in Raycast.",
+  "icon": "command-icon.png",
+  "author": "manumorante",
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "index",
+      "title": "My Projects",
+      "subtitle": "Subtitle",
+      "description": "Show my projects",
+      "mode": "view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "projectsPath",
+      "type": "directory",
+      "required": true,
+      "title": "Projects",
+      "description": "The projects folder path."
+    },
+    {
+      "name": "jsonPath",
+      "type": "textfield",
+      "required": true,
+      "title": "JSON file",
+      "description": "The path for the JSON file with your projects."
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.45.1",
+    "@raycast/utils": "^1.4.8"
+  },
+  "devDependencies": {
+    "@types/node": "~16.10.0",
+    "@types/react": "^17.0.52",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@typescript-eslint/parser": "^5.46.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.5.1",
+    "typescript": "^4.9.4"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint"
+  }
+}
