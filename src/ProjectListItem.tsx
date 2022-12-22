@@ -6,7 +6,7 @@ const ProjectListItem = ({ item }: { item: any }) => {
   return (
     <List.Item
       key={item.id}
-      icon={{ source: Icon.Dot, tintColor: Color.Green }}
+      icon={{ source: Icon.Dot, tintColor: Color.Blue }}
       title={item.name}
       subtitle={''}
       accessories={[
