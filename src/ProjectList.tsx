@@ -14,7 +14,7 @@ const ProjectList = ({ data }: { data: any[] }) => {
       <List searchBarAccessory={searchBarAccessory}>
         <List.Section title={`${data.length} projects as ${option}`}>
           {data.map((item) => (
-            <ProjectListItem item={item} />
+            <ProjectListItem key={item.id} item={item} />
           ))}
         </List.Section>
       </List>
@@ -24,7 +24,7 @@ const ProjectList = ({ data }: { data: any[] }) => {
     <Grid searchBarAccessory={searchBarAccessory}>
       <Grid.Section aspectRatio='3/2' fit='fill' columns={3} title={`${data.length} projects as ${option}`}>
         {data.map((item) => (
-          <ProjectGridtem item={item} />
+          <ProjectGridtem key={item.id} item={item} />
         ))}
       </Grid.Section>
     </Grid>

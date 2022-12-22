@@ -8,7 +8,7 @@ const ProjectListItem = ({ item }: { item: any }) => {
       key={item.id}
       icon={{ source: Icon.Dot, tintColor: Color.Blue }}
       title={item.name}
-      subtitle={''}
+      subtitle={item.url}
       accessories={[
         { text: item.id },
         iconAlert('Link', item.url?.trim()),
@@ -18,10 +18,10 @@ const ProjectListItem = ({ item }: { item: any }) => {
       actions={
         <ActionPanel>
           <ActionPanel.Section title={item.name}>
+            <Action.OpenInBrowser title={'Open site'} url={item.url} />
             <Action.Open title='Open folder' target={`${paths.projects}/${item.id}`} />
-            <Action.OpenInBrowser title={`${item.url}`} url={item.url} />
             <Action.OpenInBrowser title='Open repository' url={item.repository} />
-            <Action.Open title='Open repository' target={paths.projects} />
+            <Action.Open title='Open projects folder' target={paths.projects} />
           </ActionPanel.Section>
           <ActionPanel.Section title='General'>
             <Action.Open title='Open projects folder' target={paths.projects} />
