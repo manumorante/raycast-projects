@@ -17,8 +17,6 @@ const ProjectDetails = ({ project }: { project: projectType }) => {
     asyncEffect(`${paths.projects}/${project.id}`)
   }, [])
 
-  const tagsArray = project?.tags.split(',') || []
-
   const markdown = `
   # ${project.name}
   
@@ -57,8 +55,8 @@ const ProjectDetails = ({ project }: { project: projectType }) => {
           />
 
           <Detail.Metadata.TagList title='Tags'>
-            {tagsArray.map((tag: string) => (
-              <Detail.Metadata.TagList.Item key={`${project.id}/${tag.trim()}`} text={tag.trim()} />
+            {project.tags.map((tag: string) => (
+              <Detail.Metadata.TagList.Item key={`${project.id}/${tag}`} text={tag} />
             ))}
           </Detail.Metadata.TagList>
         </Detail.Metadata>

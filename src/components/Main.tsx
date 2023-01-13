@@ -17,7 +17,7 @@ const Main = () => {
   const json = JSON.parse(`${data}`)
   if (!json || !json?.projects) return null
 
-  return <Projects data={sortProjects(json.projects)} />
+  return <Projects projects={sortProjects(json.projects)} />
 }
 
 export default Main

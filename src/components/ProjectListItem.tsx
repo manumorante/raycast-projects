@@ -11,7 +11,8 @@ const ProjectListItem = ({ project }: { project: projectType }) => {
       key={project.id}
       icon={projectIcon(project)}
       title={project.name}
-      accessories={[{ text: cuteURL(project.url) }]}
+      accessories={[{ text: project.tags.join(' ') }]}
+      keywords={[...project.tags]}
       actions={
         <ActionPanel>
           <Action.Push icon={Icon.Box} title={`${project.name}`} target={<ProjectDetail project={project} />} />

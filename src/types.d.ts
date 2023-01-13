@@ -13,5 +13,5 @@ export type projectType = {
   published: boolean
   url: string
   repository: string
-  tags: string
+  tags: string[]
 }
