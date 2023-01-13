@@ -1,10 +1,9 @@
-import { paths } from '../config'
-import Preferences from './preferences'
-import Projects from './projects'
-const isConfigured = paths?.json?.trim() && paths?.projects?.trim()
+import { isConfigured } from 'config'
+import Preferences from 'components/preferences'
+import Main from 'components/Main'
 
 export default function Command() {
-  if (!isConfigured) return <Preferences />
+  if (isConfigured) return <Main />
 
-  return <Projects />
+  return <Preferences />
 }

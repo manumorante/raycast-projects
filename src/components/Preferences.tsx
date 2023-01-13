@@ -1,8 +1,5 @@
 import { openCommandPreferences, ActionPanel, Action, Icon, List, Color } from '@raycast/api'
-import { paths } from '../config'
-
-const isProjects = paths?.projects?.trim()
-const isJson = paths?.json?.trim()
+import { paths, isProjects, isJson } from 'config'
 
 export default function Preferences() {
   return (
