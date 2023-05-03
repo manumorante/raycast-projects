@@ -1,6 +1,7 @@
 import * as fs from 'fs'
 import { Color, Icon } from '@raycast/api'
 import { projectType } from 'types'
+
 export const cuteURL = (url: string) => {
   url = url || '/'
   return url.split('/').at(-1)
@@ -20,16 +21,17 @@ export function sortProjects(projects: projectType[]) {
 // Project icon
 export function projectIcon(project: projectType) {
   let source = Icon.Dot
-  let tintColor = Color.Red
+  let tintColor = Color.SecondaryText
   let tooltip = 'Not published'
 
   if (project.published) {
-    tintColor = Color.Green
+    tintColor = Color.Blue
     tooltip = 'Published'
   }
 
   if (project.published && project.featured) {
     source = Icon.Stars
+    tintColor = Color.Green
     tooltip = 'Featured'
   }
 

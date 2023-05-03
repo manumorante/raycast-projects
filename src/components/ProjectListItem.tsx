@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { projectIcon, cuteURL } from 'utils'
+import { projectIcon } from 'utils'
 import { Action, ActionPanel, Icon, List } from '@raycast/api'
 import ProjectDetail from 'components/ProjectDetail'
 import Preferences from 'components/preferences'
