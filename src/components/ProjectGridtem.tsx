@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { paths } from 'config'
 import { Action, ActionPanel, Grid } from '@raycast/api'
 import ProjectDetails from './ProjectDetail'
 
@@ -6,7 +7,7 @@ const ProjectGridtem = ({ project }: { project: any }) => {
   return (
     <Grid.Item
       key={project.id}
-      content={project.image}
+      content={paths.host + '/' + project.image}
       title={project.name}
       actions={
         <ActionPanel>
