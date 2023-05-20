@@ -22,7 +22,7 @@ const ProjectDetails = ({ project }: { project: projectType }) => {
   
   ${project.description}
 
-  <img src="${project.image}" />
+  <img src="${paths.host}/${project.image}" />
   `
 
   return (

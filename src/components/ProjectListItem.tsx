@@ -2,7 +2,6 @@
 import { projectIcon } from 'utils'
 import { Action, ActionPanel, Icon, List } from '@raycast/api'
 import ProjectDetail from 'components/ProjectDetail'
-import Preferences from 'components/preferences'
 import { projectType } from 'types'
 
 const ProjectListItem = ({ project }: { project: projectType }) => {
@@ -16,10 +15,6 @@ const ProjectListItem = ({ project }: { project: projectType }) => {
       actions={
         <ActionPanel>
           <Action.Push icon={Icon.Box} title={`${project.name}`} target={<ProjectDetail project={project} />} />
-
-          <ActionPanel.Section title='General'>
-            <Action.Push icon={Icon.Gear} title='Preferencias' target={<Preferences />} />
-          </ActionPanel.Section>
         </ActionPanel>
       }
     />

@@ -17,6 +17,15 @@
   ],
   "preferences": [
     {
+      "name": "host",
+      "type": "textfield",
+      "required": true,
+      "title": "Host",
+      "description": "The domain",
+      "placeholder": "https://manumorante.com",
+      "default": "https://manumorante.com"
+    },
+    {
       "name": "projectsPath",
       "type": "directory",
       "required": true,
