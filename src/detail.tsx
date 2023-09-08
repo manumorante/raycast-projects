@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { paths } from 'config'
+import { paths } from './settings'
 import { checkIfFolderExists, cuteURL } from 'utils'
 import { Action, ActionPanel, Color, Detail, Icon } from '@raycast/api'
 import { useEffect, useState } from 'react'
-import { projectType } from 'types'
+import { ProjectProps } from 'types'
 
-const ProjectDetails = ({ project }: { project: projectType }) => {
+export default function ProjectDetails({ project }: { project: ProjectProps }) {
   const [installed, setInstalled] = useState<boolean>(false)
 
   useEffect(() => {
@@ -14,8 +14,10 @@ const ProjectDetails = ({ project }: { project: projectType }) => {
       setInstalled(folderExists)
     }
 
-    asyncEffect(`${paths.projects}/${project.id}`)
+    asyncEffect(`${paths.projectsFolder}/${project.id}`)
   }, [])
+
+  const ssh = `git@github.com:manumorante/${project.id}.git`
 
   const markdown = `
   # ${project.name}
@@ -48,11 +50,6 @@ const ProjectDetails = ({ project }: { project: projectType }) => {
             <Detail.Metadata.Label icon={Icon.AppWindowGrid2x2} title={`Folder ${project.id}`} text='Not present' />
           )}
           <Detail.Metadata.Link title='URL' target={project.url} text={`${cuteURL(project?.url)}`} />
-          <Detail.Metadata.Link
-            title='Repository'
-            target={project.repository}
-            text={`${cuteURL(project?.repository)}`}
-          />
 
           <Detail.Metadata.TagList title='Tags'>
             {project.tags.map((tag: string) => (
@@ -64,14 +61,13 @@ const ProjectDetails = ({ project }: { project: projectType }) => {
       actions={
         <ActionPanel>
           <ActionPanel.Section title={project.name}>
-            <Action.OpenInBrowser icon={Icon.ArrowNe} title={`${cuteURL(project.url)}`} url={project.url} />
-            <Action.Open icon={Icon.Folder} title='Project folder' target={`${paths.projects}/${project.id}`} />
-            <Action.OpenInBrowser icon={Icon.Code} title='Repository' url={project.repository} />
+            <Action.OpenInBrowser icon={Icon.ArrowNe} title={`Visit the site`} url={project.url} />
+            <Action.OpenInBrowser icon={Icon.Code} title='Go to Github' url={project.repository} />
+            <Action.CopyToClipboard icon={Icon.Clipboard} title='Copy clone SSH' content={ssh} />
+            <Action.Open icon={Icon.Folder} title='Open folder' target={`${paths.projectsFolder}/${project.id}`} />
           </ActionPanel.Section>
         </ActionPanel>
       }
     />
   )
 }
-
-export default ProjectDetails

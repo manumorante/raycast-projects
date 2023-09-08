@@ -3,41 +3,42 @@
   "name": "my-projects",
   "title": "My Projects",
   "description": "All my projects in Raycast.",
-  "icon": "extension_icon.png",
+  "icon": "icon.png",
   "author": "manumorante",
   "license": "MIT",
   "commands": [
     {
-      "name": "index",
-      "title": "My Projects",
-      "subtitle": "Subtitle",
-      "description": "Show my projects",
+      "name": "search-projects",
+      "title": "Search Projects",
+      "description": "Search for a project",
       "mode": "view"
     }
   ],
   "preferences": [
     {
+      "name": "projectsFolder",
+      "type": "directory",
+      "required": false,
+      "title": "Folder",
+      "description": "Select the folder where you have your projects."
+    },
+    {
+      "name": "projectsJson",
+      "type": "textfield",
+      "required": false,
+      "title": "File URL",
+      "description": "The remote path for the JSON file with your projects.",
+      "default": "https://manumorante.com/projects.json",
+      "placeholder": "https://manumorante.com/projects.json"
+    },
+    {
       "name": "host",
       "type": "textfield",
-      "required": true,
+      "required": false,
       "title": "Host",
       "description": "The domain",
       "placeholder": "https://manumorante.com",
       "default": "https://manumorante.com"
-    },
-    {
-      "name": "projectsPath",
-      "type": "directory",
-      "required": true,
-      "title": "Projects",
-      "description": "The projects folder path."
-    },
-    {
-      "name": "jsonPath",
-      "type": "textfield",
-      "required": true,
-      "title": "JSON file",
-      "description": "The path for the JSON file with your projects."
     }
   ],
   "dependencies": {

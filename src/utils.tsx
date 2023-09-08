@@ -1,25 +1,14 @@
 import * as fs from 'fs'
 import { Color, Icon } from '@raycast/api'
-import { projectType } from 'types'
+import { ProjectProps } from 'types'
 
 export const cuteURL = (url: string) => {
   url = url || '/'
   return url.split('/').at(-1)
 }
 
-// Order projects by featured > published > rest
-export function sortProjects(projects: projectType[]) {
-  return projects.sort((a: projectType, b: projectType) => {
-    if (a.featured === b.featured) {
-      return a.published === b.published ? 0 : a.published ? -1 : 1
-    } else {
-      return a.featured ? -1 : 1
-    }
-  })
-}
-
 // Project icon
-export function projectIcon(project: projectType) {
+export function projectIcon(project: ProjectProps) {
   let source = Icon.Dot
   let tintColor = Color.SecondaryText
   let tooltip = 'Not published'
